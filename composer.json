@@ -1,0 +1,17 @@
+{
+    "name": "poosly/modely",
+    "description": "A PHP library to manage models in WordPress.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Poosly\\Modely\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jorostoyanov",
+            "email": "stoyanov.gs@gmail.com"
+        }
+    ],
+    "require": {}
+}
