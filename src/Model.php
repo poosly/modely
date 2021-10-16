@@ -2,8 +2,12 @@
 
 namespace Poosly\Modely;
 
+use Poosly\Modely\Traits\HasMeta;
+
 abstract class Model
 {
+    use HasMeta;
+
     /**
      * The model ID.
      *

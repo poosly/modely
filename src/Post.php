@@ -2,10 +2,13 @@
 
 namespace Poosly\Modely;
 
+use Poosly\Modely\Traits\HasPostMeta;
 use WP_Post;
 
 class Post extends Model
 {
+    use HasPostMeta;
+
     /**
      * The table associated with the model.
      *
@@ -19,6 +22,17 @@ class Post extends Model
      * @var string
      */
     protected string $primaryKey = 'ID';
+
+    /**
+     * The post metas.
+     *
+     * @var array
+     */
+    protected array $metas = [
+        'internal' => [
+            'template' => '_wp_page_template',
+        ],
+    ];
 
     /**
      * The name of the post type.
