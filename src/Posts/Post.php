@@ -1,8 +1,9 @@
 <?php
 
-namespace Poosly\Modely;
+namespace Poosly\Modely\Posts;
 
-use Poosly\Modely\Traits\HasPostMeta;
+use Poosly\Modely\Model;
+use Poosly\Modely\Posts\Traits\HasPostMeta;
 use WP_Post;
 
 class Post extends Model
@@ -35,6 +36,18 @@ class Post extends Model
     ];
 
     /**
+     * The model attributes map.
+     *
+     * @var array
+     */
+    protected array $mapAttributes = [
+        'id' => 'ID',
+        'title' => 'post_title',
+        'content' => 'post_content',
+        'slug' => 'post_name',
+    ];
+
+    /**
      * The name of the post type.
      *
      * @var string
@@ -58,5 +71,28 @@ class Post extends Model
         }
 
         return (new static($wp_post));
+    }
+
+    /**
+     * Creates a new record and store in database.
+     *
+     * @static
+     *
+     * @param  array  $attributes
+     * @return \Poosly\Modely\Post
+     */
+    public static function create(array $data = [])
+    {
+        $args = wp_parse_args($data, [
+            'post_title' => date('Y-m-d H:i:s'),
+            'post_content' => '',
+            'post_type' => static::POST_TYPE,
+            'post_status' => 'publish',
+            'meta_input' => [],
+        ]);
+
+        $id = wp_insert_post($args);
+
+        return (static::find($id));
     }
 }

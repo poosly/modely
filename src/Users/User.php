@@ -1,6 +1,8 @@
 <?php
 
-namespace Poosly\Modely;
+namespace Poosly\Modely\Users;
+
+use Poosly\Modely\Model;
 
 class User extends Model
 {
@@ -28,6 +30,18 @@ class User extends Model
      * @return \Poosly\Modely\User
      */
     public static function find($record)
+    {
+    }
+
+    /**
+     * Creates a new record and store in database.
+     *
+     * @static
+     *
+     * @param  array  $attributes
+     * @return \Poosly\Modely\Post
+     */
+    public static function create(array $data = [])
     {
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
-namespace Poosly\Modely;
+namespace Poosly\Modely\Terms;
+
+use Poosly\Modely\Model;
 
 class Term extends Model
 {
@@ -42,5 +44,17 @@ class Term extends Model
         }
 
         return (new static($wp_term));
+    }
+
+    /**
+     * Creates a new record and store in database.
+     *
+     * @static
+     *
+     * @param  array  $attributes
+     * @return \Poosly\Modely\Post
+     */
+    public static function create(array $data = [])
+    {
     }
 }

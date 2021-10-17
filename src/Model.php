@@ -37,6 +37,13 @@ abstract class Model
     protected array $attributes = [];
 
     /**
+     * The model attributes map.
+     *
+     * @var array
+     */
+    protected array $mapAttributes = [];
+
+    /**
      * Constructor.
      *
      * @param  array $attributes
@@ -58,4 +65,14 @@ abstract class Model
      * @return \Poosly\Modely\Model
      */
     abstract public static function find($record);
+
+    /**
+     * Creates a new record and store in database.
+     *
+     * @static
+     *
+     * @param  array  $attributes
+     * @return \Poosly\Modely\Model
+     */
+    abstract public static function create(array $attributes);
 }

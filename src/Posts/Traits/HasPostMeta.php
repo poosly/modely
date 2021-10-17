@@ -1,6 +1,6 @@
 <?php
 
-namespace Poosly\Modely\Traits;
+namespace Poosly\Modely\Posts\Traits;
 
 trait HasPostMeta
 {
