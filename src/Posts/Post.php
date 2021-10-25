@@ -95,4 +95,19 @@ class Post extends Model
 
         return (static::find($id));
     }
+
+    /**
+     * Updates the record and store in database.
+     *
+     * @static
+     *
+     * @param  array  $attributes
+     * @return \Poosly\Modely\Post
+     */
+    public function update(array $attributes = [])
+    {
+        foreach ($attributes as $key => $value) {
+            $this->$key = $value;
+        }
+    }
 }

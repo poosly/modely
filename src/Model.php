@@ -57,6 +57,16 @@ abstract class Model
     }
 
     /**
+     * Returns a fresh instance of the model.
+     *
+     * @return $this
+     */
+    public function fresh()
+    {
+        return static::find($this->ID);
+    }
+
+    /**
      * Search for a record by its primary key.
      *
      * @static
@@ -75,4 +85,12 @@ abstract class Model
      * @return \Poosly\Modely\Model
      */
     abstract public static function create(array $attributes);
+
+    /**
+     * Updates the record and store in database.
+     *
+     * @param  array  $attributes
+     * @return \Poosly\Modely\Model
+     */
+    abstract public function update(array $attributes);
 }
