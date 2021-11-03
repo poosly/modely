@@ -93,4 +93,16 @@ abstract class Model
      * @return \Poosly\Modely\Model
      */
     abstract public function update(array $attributes);
+
+    /** 
+     * Getter.
+     * 
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        if (in_array($key, ['id', 'ID'])) {
+            return $this->ID;
+        }
+    }
 }
